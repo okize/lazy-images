@@ -1,0 +1,27 @@
+{
+  "name": "lazy-images",
+  "version": "1.0.0",
+  "description": "lazy load images",
+  "author": "Morgan Wigmanich <okize123@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okize/lazy-images.git"
+  },
+  "bugs": {
+    "url": "https://github.com/okize/lazy-images/issues"
+  },
+  "keywords": [
+    "lazy",
+    "load",
+    "images",
+    "browserify"
+  ],
+  "dependencies": {
+  },
+  "homepage": "https://github.com/okize/lazy-images",
+  "license": "MIT"
+}

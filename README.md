@@ -1,4 +1,3 @@
-lazy-images
-===========
+# lazy-images
 
-lazy load images
+A lightweight javascript plugin for lazy-loading images

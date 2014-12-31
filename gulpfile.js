@@ -20,12 +20,11 @@ gulp.task('server', function () {
 });
 
 gulp.task('html', function () {
-  gulp.src('./example/index.html')
-    .pipe(connect.reload());
+  gulp.src('./example/index.html').pipe(connect.reload());
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['./example/*', './src/*'], ['html', 'browserify']);
+  gulp.watch(['./example/*', './src/*'], ['html', 'browserify', 'lint']);
 });
 
 gulp.task('browserify', function() {
@@ -35,4 +34,22 @@ gulp.task('browserify', function() {
     .pipe(gulp.dest('./example/'));
 });
 
-gulp.task('default', ['server', 'watch', 'browserify']);
+gulp.task('lint', function () {
+  return gulp.src(['lazy-images.js'])
+    .pipe(eslint({
+      rules: {
+        'quotes': true,
+      },
+      globals: {
+        'exports': true,
+        'module': true
+      },
+      envs: [
+        'browser'
+      ]
+    }))
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError());
+});
+
+gulp.task('default', ['browserify', 'server', 'watch']);

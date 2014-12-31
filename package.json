@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A lightweight javascript plugin for lazy-loading images",
   "author": "Morgan Wigmanich <okize123@gmail.com>",
-  "main": "index.js",
+  "main": "lazy-images.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

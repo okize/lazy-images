@@ -24,7 +24,7 @@ gulp.task('html', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['./example/*', './src/*'], ['html', 'browserify', 'lint']);
+  gulp.watch(['lazy-images.js', './example/*'], ['html', 'browserify']);
 });
 
 gulp.task('browserify', function() {

@@ -3,7 +3,9 @@ var gutil = require('gulp-util');
 var connect = require('gulp-connect');
 var eslint = require('gulp-eslint');
 var browserify = require('browserify');
+var buff = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
+var sourcemaps = require('gulp-sourcemaps');
 
 var port = 8888;
 
@@ -31,6 +33,9 @@ gulp.task('browserify', function() {
   return browserify('./example/example.js')
     .bundle()
     .pipe(source('scripts.js'))
+    .pipe(buff())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./example/'));
 });
 

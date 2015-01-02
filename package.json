@@ -5,7 +5,8 @@
   "author": "Morgan Wigmanich <okize123@gmail.com>",
   "main": "lazy-images.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm install && gulp"
   },
   "repository": {
     "type": "git",
@@ -27,8 +28,10 @@
     "gulp": "^3.8.10",
     "gulp-connect": "^2.2.0",
     "gulp-eslint": "^0.2.0",
+    "gulp-sourcemaps": "^1.2.8",
     "gulp-util": "^3.0.1",
     "gulpfile": "^1.0.2",
+    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0"
   }
 }

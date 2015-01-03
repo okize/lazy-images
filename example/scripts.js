@@ -40,14 +40,13 @@ function lazy(selector) {
     return rect.top >= 0 && rect.left >= 0 && rect.top <= window.innerHeight;
   };
 
-  //
+  // event handler for scrolling
   return window.addEventListener('load', function() {
     var images, processScroll;
     images = document.querySelectorAll("img." + (selector || 'lazy'));
     processScroll = function() {
-      var image, i, len, results;
-      results = [];
-      for (i = 0, len = images.length; i < len; i++) {
+      var image, results = [];
+      for (var i = 0, len = images.length; i < len; i++) {
         image = images[i];
         if (imageInView(image)) {
           results.push(loadImage(image));

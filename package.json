@@ -1,6 +1,6 @@
 {
   "name": "lazy-images",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A lightweight javascript plugin for lazy-loading images",
   "author": "Morgan Wigmanich <okize123@gmail.com>",
   "main": "lazy-images.js",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "browserify": "^7.0.1",
     "gulp": "^3.8.10",
+    "gulp-bump": "^0.1.11",
     "gulp-connect": "^2.2.0",
     "gulp-eslint": "^0.2.0",
     "gulp-sourcemaps": "^1.2.8",

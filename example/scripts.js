@@ -64,6 +64,7 @@ function lazy(selector) {
 
 exports = module.exports = lazy;
 
-},{}]},{},[1]);
+},{}]},{},[1])
+
 
 //# sourceMappingURL=scripts.js.map

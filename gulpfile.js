@@ -9,6 +9,7 @@ var browserify = require('browserify');
 var buff = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
+var runSequence = require('run-sequence');
 
 var getPackageVersion = function() {
   json = JSON.parse(fs.readFileSync('package.json', 'utf8'))
@@ -82,14 +83,14 @@ gulp.task('bump', function() {
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('version', function(done) {
-  return spawn('npm', ['version', getPackageVersion()], {stdio: 'inherit'})
-    .on('close', done);
+gulp.task('version', function() {
+  return spawn('npm', ['version', getPackageVersion()], {stdio: 'inherit'});
 });
 
-gulp.task('publish', function(done) {
-  return spawn('npm', ['publish'], {stdio: 'inherit'})
-    .on('close', done);
+gulp.task('publish', function() {
+  return spawn('npm', ['publish'], {stdio: 'inherit'});
 });
 
-gulp.task('npm', ['bump', 'version', 'publish']);
+gulp.task('npm', function(callback) {
+  runSequence('publish', 'version', 'bump', callback);
+});

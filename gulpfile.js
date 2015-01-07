@@ -4,12 +4,12 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var connect = require('gulp-connect');
 var eslint = require('gulp-eslint');
-var bump = require('gulp-bump');
 var browserify = require('browserify');
 var buff = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('run-sequence');
+var semver = require('semver');
 
 var getPackageVersion = function() {
   json = JSON.parse(fs.readFileSync('package.json', 'utf8'))
@@ -76,15 +76,9 @@ gulp.task('lint', function () {
 
 gulp.task('default', ['browserify', 'server', 'watch']);
 
-gulp.task('bump', function() {
-  return gulp
-    .src('./package.json')
-    .pipe(bump({type: 'patch'}))
-    .pipe(gulp.dest('./'));
-});
-
 gulp.task('version', function() {
-  return spawn('npm', ['version', getPackageVersion()], {stdio: 'inherit'});
+  var newVersion = semver.inc(getPackageVersion(), 'patch');
+  return spawn('npm', ['version', newVersion], {stdio: 'inherit'});
 });
 
 gulp.task('publish', function() {
@@ -92,5 +86,5 @@ gulp.task('publish', function() {
 });
 
 gulp.task('npm', function(callback) {
-  runSequence('publish', 'version', 'bump', callback);
+  runSequence('version', 'publish', callback);
 });

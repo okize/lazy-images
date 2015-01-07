@@ -1,6 +1,6 @@
 {
   "name": "lazy-images",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight javascript plugin for lazy-loading images",
   "author": "Morgan Wigmanich <okize123@gmail.com>",
   "main": "lazy-images.js",
